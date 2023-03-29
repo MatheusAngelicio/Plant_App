@@ -34,7 +34,14 @@ class RecomendsPlants extends StatelessWidget {
             title: "Angelica",
             country: "Russia",
             price: 475,
-            press: () {},
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailScreen(),
+                ),
+              );
+            },
           ),
           RecomendPlantCard(
             image: "assets/images/image_3.png",
