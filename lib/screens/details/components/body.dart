@@ -22,7 +22,7 @@ class Body extends StatelessWidget {
             price: 440,
           ),
           SizedBox(
-            height: kDefaultPadding,
+            height: kDefaultPadding * 4,
           ),
           Row(
             children: [
@@ -54,6 +54,7 @@ class Body extends StatelessWidget {
                     "Description",
                     style: TextStyle(
                       color: Colors.black,
+                      fontSize: 16,
                     ),
                   ),
                 ),
