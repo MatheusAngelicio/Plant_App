@@ -1,5 +1,7 @@
 # plant_app
 
+<img width="385" alt="Screenshot 2023-03-30 at 14 41 41" src="https://user-images.githubusercontent.com/54027680/228920315-809bd44a-9d44-4f16-a08d-0a2ca97e47bb.png">
+
 A new Flutter project.
 
 ## Getting Started
