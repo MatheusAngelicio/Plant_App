@@ -49,10 +49,7 @@ class Body extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: ElevatedButton(
-                  style:
-                      ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                  onPressed: () {},
+                child: Center(
                   child: Text(
                     "Description",
                     style: TextStyle(
