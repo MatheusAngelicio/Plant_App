@@ -3,11 +3,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:plant_app/constants.dart';
 import 'package:plant_app/screens/details/components/title_and_price.dart';
 
+import '../../../model/plant_model.dart';
 import 'icon_card.dart';
 import 'image_and_icons.dart';
 
 class Body extends StatelessWidget {
-  const Body({super.key});
+  const Body({super.key, required this.plant});
+
+  final Plant plant;
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +18,14 @@ class Body extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          ImageAndIcons(size: size),
+          ImageAndIcons(
+            size: size,
+            image: 'assets/images/img.png',
+          ),
           TitleAndPrice(
-            title: "Angelica",
-            country: "Russia",
-            price: 440,
+            title: plant.title,
+            country: plant.country,
+            price: plant.price,
           ),
           SizedBox(
             height: kDefaultPadding * 4,

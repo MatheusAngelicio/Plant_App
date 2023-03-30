@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app/model/plant_model.dart';
 import 'package:plant_app/screens/details/components/body.dart';
 
 import '../../../constants.dart';
@@ -11,49 +12,68 @@ class RecomendsPlants extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
+    List<Plant> plants = [
+      Plant(
+        title: "Samantha",
+        country: "Russia",
+        price: 400,
+        image: "assets/images/image_1.png",
+      ),
+      Plant(
+        title: "Angelica",
+        country: "Russia",
+        price: 470,
+        image: "assets/images/image_2.png",
+      ),
+      Plant(
+        title: "Violet",
+        country: "Russia",
+        price: 730,
+        image: "assets/images/image_3.png",
+      ),
+    ];
+    return Container(
+      height: 310,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
         children: [
-          RecomendPlantCard(
-            image: "assets/images/image_1.png",
-            title: "Samantha",
-            country: "Russia",
-            price: 440,
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(),
-                ),
-              );
-            },
-          ),
-          RecomendPlantCard(
-            image: "assets/images/image_2.png",
-            title: "Angelica",
-            country: "Russia",
-            price: 475,
-            press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(),
-                ),
-              );
-            },
-          ),
-          RecomendPlantCard(
-            image: "assets/images/image_3.png",
-            title: "Samantha",
-            country: "Russia",
-            price: 440,
-            press: () {},
-          ),
+          for (var plant in plants)
+            _itemView(
+              image: plant.image,
+              title: plant.title,
+              country: plant.country,
+              price: plant.price,
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailScreen(
+                      plant: plant,
+                    ),
+                  ),
+                );
+              },
+            )
         ],
       ),
     );
   }
+}
+
+_itemView({
+  required String image,
+  required String title,
+  required String country,
+  required int price,
+  required Function press,
+}) {
+  return RecomendPlantCard(
+    image: image,
+    title: title,
+    country: country,
+    price: price,
+    press: press,
+  );
 }
 
 class RecomendPlantCard extends StatelessWidget {
